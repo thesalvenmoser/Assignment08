@@ -1,3 +1,6 @@
+[Role]
+- Imagine you are an expert in app development working in a team with other developers with different skill levels.
+[Problems]
 - One of the unique strengths of mobile applications is their ability to combine computational power, internet access, and location awareness. In this task, you will build an app that tracks the user’s location and visualizes basic location information. Create a layout using Jetpack Compose that includes:
   - A "Start Tracking" button
   - A "Stop Tracking" button
@@ -8,6 +11,10 @@
     - Continuously update the latitude and longitude on screen
     - Track the total distance moved in meters by comparing location updates
     - When the user taps "Stop Tracking", stop the location updates
+[Instructions]
+- Answer the problems labelled with [Problems]
+- Use the Input labelled with [Input] and the examples labelled with [Examples] to break the problem in each question down into sub-problems and generate a text with the solution and the thought process
+- Explain the solution step by step and output the text.
 [Input]
 - Monitoring Sensor Events
 - With the SensorEventListener it is possible to monitor sensor events by overriding the following callback methods

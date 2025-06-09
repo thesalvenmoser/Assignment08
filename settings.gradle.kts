@@ -22,3 +22,4 @@ dependencyResolutionManagement {
 rootProject.name = "Assignment08"
 include(":app")
 include(":exercise3")
+include(":exercise2")

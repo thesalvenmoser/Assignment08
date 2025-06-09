@@ -1,5 +1,5 @@
 [Problems]
-- A spirit level is a tool that uses a liquid-filled tube and an air bubble to determine whether a surface is horizontally or vertically aligned. Your task is to develop a mobile application that replicates the functionality of a physical spirit level using the device’s accelerometer sensor. Your app should:
+- A spirit level is a tool that uses a liquid-filled tube and an air bubble to determine whether a surface is horizontally or vertically aligned. Your task is to develop a mobile application in Kotlin using Jetpack Compose that replicates the functionality of a physical spirit level using the device’s accelerometer sensor. Your app should:
   - Measure the tilt of the device using real-time sensor data from the device’s accelerometer
   - Display the tilt angle numerically (in degrees) for both X and Y axes.
   - Simulate a traditional bubble level:
@@ -276,6 +276,10 @@ public class SpiritView extends View {
 
 </RelativeLayout>
 ```
+[Instructions]
+- Answer the problems labelled with [Problems]
+- Use the Input labelled with [Input] and the examples labelled with [Examples] to break the problem in each question down into sub-problems and generate a text with the solution and the thought process
+- Explain the solution step by step and output the text.
 [Input]
 - MainActivity.kt monitoring sensor events
 ``` kotlin

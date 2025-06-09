@@ -1,47 +1,36 @@
 package at.appdev.assignment08
 
+import android.content.Context
+import android.hardware.Sensor
+import android.hardware.SensorEvent
+import android.hardware.SensorEventListener
+import android.hardware.SensorManager
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
-import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import at.appdev.assignment08.ui.theme.Assignment08Theme
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ComponentActivity(), SensorEventListener {
+    lateinit var sensorManager: SensorManager
+    var accSensor: Sensor? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContent {
-            Assignment08Theme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                }
-            }
+        sensorManager = getSystemService(Context.SENSOR_SERVICE) as SensorManager
+        accSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER)
+    }
+    override fun onResume() {
+        super.onResume()
+        accSensor?.let {
+            sensorManager.registerListener(this, it, SensorManager.SENSOR_DELAY_NORMAL)
         }
     }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Assignment08Theme {
-        Greeting("Android")
+    override fun onPause() {
+        super.onPause()
+        sensorManager.unregisterListener(this)
+    }
+    override fun onAccuracyChanged(sensor: Sensor?, accuracy: Int) {
+        Log.i("Sensors", "Accuracy of sensor ${sensor?.name} changed to $accuracy")
+    }
+    override fun onSensorChanged(event: SensorEvent?) {
+        Log.i("Sensors", "sensor data: ${event?.values?.first()}")
     }
 }

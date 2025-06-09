@@ -1,3 +1,15 @@
+[Problems]
+- A spirit level is a tool that uses a liquid-filled tube and an air bubble to determine whether a surface is horizontally or vertically aligned. Your task is to develop a mobile application that replicates the functionality of a physical spirit level using the device’s accelerometer sensor. Your app should:
+  - Measure the tilt of the device using real-time sensor data from the device’s accelerometer
+  - Display the tilt angle numerically (in degrees) for both X and Y axes.
+  - Simulate a traditional bubble level:
+    - Visually represent the bubble moving in response to device orientation.
+    - Center the bubble when the surface is level.
+  - Bonus challenges:
+    - Include sound/vibration feedback when level is reached.
+    - Include a horizontal and vertical mode.
+    - Be creative and think about how you could use animations to further enhance the user experience.
+[Examples]
 - MainActivity.java
 ``` kotlin
 package com.example.shenhaichen.spiritlevelapp;
@@ -263,4 +275,9 @@ public class SpiritView extends View {
         />
 
 </RelativeLayout>
+```
+[Input]
+- MainActivity.kt monitoring sensor events
+``` kotlin
+
 ```

@@ -1,4 +1,4 @@
-package at.appdev.assignment08
+package at.appdev.exercise3
 
 import android.content.BroadcastReceiver
 import android.content.Context
